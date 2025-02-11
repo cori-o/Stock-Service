@@ -40,7 +40,7 @@ class EnvManager:
         returns:
         list[str]: 증권 종목 이름, 코드 값
         '''
-        tickles = pd.read_csv(os.path.join('/workspace', 'tickle', 'tickle-final.csv'))
+        tickles = pd.read_csv(os.path.join('./', 'tickle', 'tickle-final.csv'))
         tickles.dropna(inplace=True)
         return tickles['tickle'].values.tolist()
 
