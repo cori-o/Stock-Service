@@ -66,7 +66,7 @@ if __name__ == '__main__':
     cli_parser.add_argument('--query', type=str, default=None)
     cli_args = cli_parser.parse_args()
     
-    schedule.every().day.at("00:13").do(main, cli_args)
+    schedule.every().day.at("02:10").do(main, cli_args)
     '''while True:   # 스케줄러를 유지하는 루프
         schedule.run_pending()   # 대기 중인 작업 실행
         time.sleep(1)'''  
