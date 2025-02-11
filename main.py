@@ -17,7 +17,7 @@ def main(args):
 
 if __name__ == '__main__':
     cli_parser = argparse.ArgumentParser()
-    cli_parser.add_argument('--config_path', type=str, default='config/')
+    cli_parser.add_argument('--config_path', type=str, default='./config/')
     cli_parser.add_argument('--process', type=str, default='daily')
     cli_parser.add_argument('--task_name', type=str, default='cls')
     cli_parser.add_argument('--query', type=str, default=None)
