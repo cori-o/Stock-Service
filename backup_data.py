@@ -29,8 +29,8 @@ def main(args):
 
 if __name__ == '__main__':
     cli_parser = argparse.ArgumentParser()
-    cli_parser.add_argument('--data_path', type=str, default="/workspace/data/")
-    cli_parser.add_argument('--config_path', type=str, default="/workspace/config/")
+    cli_parser.add_argument('--data_path', type=str, default="./data/")
+    cli_parser.add_argument('--config_path', type=str, default="./config/")
     cli_parser.add_argument('--task_name', type=str, default="cls")
     cli_parser.add_argument('--query', type=str, default=None)
     cli_args = cli_parser.parse_args()
