@@ -168,28 +168,14 @@ class PipelineController:
                 continue
 
             query = input_data[idx][3]
-            # self.openai_llm.set_stock_guideline()
-            # gpt_response = self.openai_llm.get_response(query=query, role=self.openai_llm.system_role, sub_role=self.openai_llm.stock_role)
             encoder_response = self.predictor.predict(query)
-
-            # gpt_res = 'o' if gpt_response != '종목 x' else 'x'
-            # time.sleep(0.2)
             enc_res = 'o' if encoder_response == 'stock' else 'x'
-            # ensembled_res = gpt_res if gpt_res != enc_res else enc_res
 
             if len(self.val_tokenizer.tokenize_data(query)) == 1:
                 cleaned_word = self.text_p.remove_patterns(query, r"(뉴스|주식|정보|분석)$")    # 불필요한 단어 제거
                 enc_res = 'o' if cleaned_word in self.tickle_list else 'x'
-            '''if ensembled_res == 'o':
-                openai_llm.set_stock_tickle_guideline()
-                tickle = openai_llm.get_response(input_data[idx][0], role=openai_llm.system_role) 
-                stopwords = ['추출', '종목', '죄송']
-                if any(stopword in tickle for stopword in stopwords):
-                    tickle = '''''
             cls_pred_set = (input_data[idx][0], enc_res)  
             clicked = 'o' if self.text_p.check_expr(r"\b\w+\(KR:\d+\)", query) else 'x'
-            '''if clicked == 'o':
-                tickle = re.findall(expr, query)[0]'''
             u_id = input_data[idx][4]
             clicked_set = (input_data[idx][0], clicked, u_id)
 
